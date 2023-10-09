@@ -1,62 +1,82 @@
 :root {
   --text: #01040f;
-  --background: #e7edfe;
-  --primary: #511ff4;
-  --secondary: #fdf0ce;
-  --accent: #bdf40b;
+  --background: #f6f6f6;
+  --primary: #f50002;
+  --secondary: #f5c318;
+  --accent: #d3e37a;
+  --default_shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --hover_shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
   color: var(--text);
   background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#people-to-revisit,
-#current-person,
-#chosen-people,
-#unchosen-people {
+body {
+  max-width: 70%;
+  margin: auto;
+}
+
+section {
   display: flex;
   flex-wrap: wrap;
 
-  & .person {
-    flex: 0 1 150px;
-    border: 1px solid var(--primary);
+  .person {
+    flex: 0 1 175px;
+    padding: 15px;
+    box-shadow: var(--default_shadow);
+    border-radius: .5em;
+    padding: 2px, 6px;
     margin: 5px;
     overflow-x: hidden;
     position: relative;
+    background-color: #ffffff;
+
+    &:hover {
+      box-shadow: var(--hover_shadow);
+      
+      .id-hole {
+        box-shadow: inset var(--hover_shadow);
+      }
+    }
+
+    .id-hole {
+      color: var(--background);
+      box-shadow: inset var(--default_shadow);
+      width: 40px;
+      height: 12px;
+      margin: auto;
+      display: block;
+      border-radius: 1em;
+    }
 
     & div.name-and-img {
-
+      margin-top: 10px;
       &>h3 {
         color: var(--primary);
-        background: linear-gradient(var(--secondary), rgba(255, 255, 255, 0));
-        position: absolute;
+        text-align: center;
         width: 100%;
         font-size: 20px;
-        transform-origin: top left;
-        transform: rotate(-90deg) translate(-100px, 0);
+        margin: 2px;
       }
 
       &>img {
         width: 100%;
+        border: solid 2px var(--primary);
+        
       }
     }
 
     & div.data-table {
-      overflow-x: scroll;
-
-      & table>thead>tr {
-        font-size: 6px;
-        overflow-x: scroll;
-      }
-
-      & td:first-child {
-        font-weight: bold;
-        text-align: right;
+      font-size: 11px;
+      letter-spacing: .9;
+      overflow-wrap: break-word;
+      display: flex;
+      .label {
+        font-style: bold;
+        color: var(--primary);
+        font-size: 9px;
+        width: 35px;
         text-transform: uppercase;
-        padding-right: 3px;
-
-        &::after {
-          content: ":";
-        }
       }
     }
   }

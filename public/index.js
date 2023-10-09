@@ -92,6 +92,7 @@ const refreshPeopleToRevisit = async () => {
 
 const makeOnePersonSection = (person) => `
 <section class="person">
+  <span class="id-hole"></span>
   <div class="name-and-img">
     <h3>${person.first}</h3>
     <img src="/images/${person.id}.png" alt="" />
@@ -99,10 +100,10 @@ const makeOnePersonSection = (person) => `
   <div class="data-table">
     <table>
     <tbody>
-    <tr><td>Last</td><td>${person.last}</td></tr>
-    <tr><td>Age</td><td>${person.age}</td></tr>
-    <tr><td>Email</td><td>${person.email}</td></tr>
-    <tr><td>Phone</td><td>${person.phone}</td></tr>
+      <tr><td class="label">Last</td><td>${person.last}</td></tr>
+      <tr><td  class="label">Age</td>><td>${person.age}</td></tr>
+      <tr><td class="label">Phone</td><td>${person.phone}</td></tr>
+      <tr><td class="label">Email</td><td>${person.email}</td></tr>
     </tbody>
     </table>
   </div>
